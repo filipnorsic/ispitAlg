@@ -59,3 +59,5 @@ sudo mysql - logiranje u sql server
 /var/www - mapa gdje se nalazi root file za apache server
 
 localhost ili 127.0.0.1 - adresa za pristupanje apache serveru
+
+git
