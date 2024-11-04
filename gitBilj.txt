@@ -1,0 +1,39 @@
+GIT
+
+git init - novi lokalni repozitorij
+git status - provjera stanja repozitorija
+git add <datoteka> - dodavanje promjena u index
+git add . - dodavanje svih datoteka u index (all)
+git commit - spremanje novog stanja projekta u lokalni repozitorij
+git commit -m spremanje novog stanja projekta u lokalni repozitorij sa porukom (ime commita)
+git log - pregled svih commiteva (autor, datum, poruka)
+git shortlog - 
+git checkout (id commita) - za vračanje na prijašnji commit
+git checkout main (master) - vračanje natrag na zadnji commit
+
+VIM
+
+i -input mode
+esc - izlaz iz input moda
+:wq - spremanje
+
+git branch -M    main (mastre) grane
+git branch - ispiše sve grane (lokalne)
+git branch ime_grane - stvara novu granu
+git checkout ime(dev) - prebacivanje u granu (dev)
+git checkout -b ime     - stvori novu granu i odmah se prebaci na nju
+
+BRISANJE BRANCHA - pozicionirati se u main (u branch koji nećemo brisati)
+                git branch -d ime_brancha
+                git branch -D ime_brencha   - force delete (ne pita da li ste sigurni)
+
+git merge ime - treba se pozicionirati u branch koji želimo mergati, ime upisujemo koji spajamo sa onim u kojem se nalazimo
+
+git remote -v    - na koji repozitorij je spojen
+git push -u origin ime   - prvi puta ako pushamo sa lokalnog rep na udaljeni, a na udaljenom branch ne postoji
+
+git branch -a     - vidiš lokalne i udaljene branchove
+
+git clone link    - kloniranje udaljenog repozitorija na lokalni
+git pull   - povuče sve promjene sa git huba na lokalni rep.
+git fetch - osvježi info na lokalnom rep s obzirom na udaljeni repo

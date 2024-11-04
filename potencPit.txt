@@ -28,3 +28,13 @@ sudo apt update (ćak i netreba)
 sudo apt install apache2
 sudo apt install mysql-server
 sudo apt install php libapache2-mod-php
+
+
+ZADATAK:
+
+- inicijaliziraj, komitaj, pušni na github
+
+git init
+git add .
+git commit -m "prvi commit"
+git push ( -u, uzeti link sa githuba iz repozitorija)
