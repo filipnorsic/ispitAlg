@@ -1,0 +1,61 @@
+LINUX:
+
+clear - brisanje ekrana
+ls - listanje direktorija
+ls -l - listanje direktorija u detaljnom obliku
+ls -a - listanje direktorija sa skrivenim datotekama
+cd - promjena direktorija
+cd .. - povratak u prethodni direktorij
+cd ~ - povratak u home direktorij
+pwd - ispis trenutnog direktorija
+mkdir - kreiranje direktorija 
+rmdir - brisanje direktorija
+touch - kreiranje datoteke
+rm - brisanje datoteke
+rm -r - brisanje datoteke i njezinog sadržaja
+cp - kopiranje datoteke
+cat - ispis sadržaja datoteke
+mv - premještanje datoteke i promjena imena
+cd ~ - prebacivanje na home direktorij
+cd / - prebacivanje na root direktorij
+curl - omogučuje requestove kroz terminal prema serveru
+
+
+
+sudo - uzdiže usera na root (super user) razinu
+sudo -i -postaješ root user, sva prava svugdje
+exit - izlaz iz root korisnika, vraća se na usera, ako još jednom napišeš exit, izlaziš iz terminala
+
+chmod - promjena dozvola datoteke (permissions)
+
+read r ili 4
+write w ili 2
+execute x ili 1
+
+owner - rwx --- ---
+group - --- rwx ---
+other - --- --- rwx
+
+test.txt 755 - owner ima sve dozvole, group i other imaju samo read i execute (owner 7 (4+2+1), group 5 (4+1), other 5 (4+1))
+
+chmod 777 - svi imaju sve dozvole
+chmod 000 - nitko nema nikakve dozvole
+chmod 777 test.txt - daje sve dozvole datoteci test.txt
+
+nano - otvaranje tekst editora
+
+
+sudo systemctl restart apache2 - restartanje apache servera
+sudo systemctl status apache2 - provjera statusa apache servera
+
+ip -a - ispis IP adrese
+cd/etc/apache2/sites-available/000-default.conf - konfiguracija root direktorija
+(nakon promjene konfiguracije, potrebno je restartati apache server)
+
+php -v - provjera verzije PHP-a
+
+sudo mysql - logiranje u sql server
+
+/var/www - mapa gdje se nalazi root file za apache server
+
+localhost ili 127.0.0.1 - adresa za pristupanje apache serveru

@@ -1,0 +1,30 @@
+POTENCIJALNA PITANJA:
+
+PITANJE 
+- Što je normalizacija? Normalizacija baze podataka je razdoblje kojim se iz danog modela bez podataka 
+nastoji otkloniti potreba za višestrukim ponavljanjem različitih podataka. Načelni cilj normalizacije možemo 
+izraziti riječima: Baza podataka treba biti oblikovana tako da se svaki podatak upisuje samo jednom (ili samo na jednom mjestu).
+
+- Koje su prednosti normalizacije? Prednosti normalizacije su:
+1. Smanjenje redundancije podataka
+2. Povećanje integriteta podataka
+3. Povećanje efikasnosti upita
+4. Povećanje efikasnosti ažuriranja
+5. Povećanje efikasnosti dodavanja novih podataka
+6. Povećanje efikasnosti brisanja podataka
+7. Povećanje efikasnosti promjene strukture baze podataka
+8. Povećanje efikasnosti pristupa podacima
+9. Povećanje efikasnosti upravljanja podacima
+10. Povećanje efikasnosti održavanja baze podataka
+11. Povećanje efikasnosti razvoja baze podataka
+12. Povećanje efikasnosti pristupa podacima
+
+
+ZADATAK:
+- imamo virtualnu mašinu, instaliraj apache, php i mysql server
+- na virtualki je instaliran ubuntu
+
+sudo apt update (ćak i netreba)
+sudo apt install apache2
+sudo apt install mysql-server
+sudo apt install php libapache2-mod-php
