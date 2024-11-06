@@ -38,3 +38,6 @@ git init
 git add .
 git commit -m "prvi commit"
 git push ( -u, uzeti link sa githuba iz repozitorija)
+
+
+aaaaaaaa
