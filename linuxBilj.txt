@@ -19,6 +19,11 @@ mv - premještanje datoteke i promjena imena
 cd ~ - prebacivanje na home direktorij
 cd / - prebacivanje na root direktorij
 curl - omogučuje requestove kroz terminal prema serveru
+less - pregledavanje datoteke koristeći manje memorije
+grep - pretraživanje datoteke za određenim nizom znakova
+top - ispisivanje popisa procesa koji trenutno rade
+ps - ispisivanje popisa procesa koje je pokrenuo trenutni korisnik
+ll - izlista mape i datoteke sa detaljima (prava, veličina, datum...)
 
 
 
@@ -60,4 +65,13 @@ sudo mysql - logiranje u sql server
 
 localhost ili 127.0.0.1 - adresa za pristupanje apache serveru
 
-git
+
+
+
+
+
+
+
+
+
+

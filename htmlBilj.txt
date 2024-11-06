@@ -1,0 +1,87 @@
+• HTML (HyperText Markup
+Language) je standardni jezik za
+izgradnju web stranica. HTML se
+koristi za definiranje strukture,
+sadržaja i izgleda web stranica. To je
+osnovni jezik koji se koristi za
+kreiranje svih web stranica na
+Internetu.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+• HTML tagovi su elementi koji se koriste za strukturiranje i oblikovanje sadržaja na
+web stranici
+• Atributi su dodatne informacije koje se mogu dodati tagovima kako bi se pružile
+dodatne informacije o elementu ili kako bi se prilagodile njegove postavke.
+• Prvi red u vašem HTML kodu bi trebao biti <!DOCTYPE html>
+• Atribut koji se koristi za definiranje kodiranja znakova za HTML document je
+<meta charset="UTF-8">.
+• Vizualni stilovi se definiraju uz pomoć CSS-a
+• Povezivanje vanjskim stilom se vrši na sljedeći način: <link rel="stylesheet"
+href="style.css">
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+<html> - označava početak HTML dokumenta.
+
+<head> - označava početak zaglavlja HTML dokumenta i obično sadrži informacije o dokumentu, poput naslova stranice, meta podataka i skripti.
+
+<title> - označava naslov HTML dokumenta i pojavljuje se u okviru <head> taga.
+
+<body> - označava početak tijela HTML dokumenta i sadrži sve vizualne elemente na stranici.
+
+<h1> - <h6> - označavaju naslove različitih razina (od najvažnijeg do najmanje važnog).
+
+<p> - označava novi paragraf.
+
+<a> - označava hipervezu i koristi se za stvaranje linkova na druge stranice ili dokumente.
+
+<img> - označava sliku i koristi se za prikazivanje slika na web stranicama.
+
+<ul> i <ol> - označavaju neuređenu (ul) i uređenu (ol) listu.
+
+<li> - označava stavke u listi.
+
+<table> - označava tablicu i koristi se za prikazivanje strukturiranih podataka u obliku tablice.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+HTML tablice
+
+⚫ HTML tablica definirana je oznakom <table>.
+⚫ Svaki redak tablice definiran je oznakom <tr>.
+⚫ Zaglavlje tablice definirano je oznakom <th>.
+⚫ Ćelija tablice definirana je oznakom <td>.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+HTML liste
+
+⚫ HTML neuređena lista definirana je oznakom <ul>.
+Svaka stavka liste počinje oznakom <li>.
+Stavke liste bit će označene oznakama (mali crni krugovi) prema zadanim postavkama.
+⚫ HTML uređena lista definirana je oznakom <ol>.
+Svaka stavka liste počinje oznakom <li>.
+Stavke liste bit će označene brojevima prema zadanim postavkama.
+⚫ HTML lista opisa je popis pojmova s opisom svakog pojma.
+Oznaka <dl> definira listu opisa, oznaka <dt> definira pojam (naziv), a oznaka <dd> opisuje svaki
+pojam.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+HTML poveznice
+
+⚫ HTML poveznice su hiperveze. Možete kliknuti na vezu i prijeći na drugi dokument.
+⚫ Poveznica ne mora biti tekst. To može biti slika ili bilo koji drugi HTML element.
+⚫ Atribut href navodi odredišnu adresu (https://www.w3schools.com) poveznice.
+⚫ HTML sidra koriste se kako bi se čitateljima omogućilo da prelaze na određene dijelove mrežne
+stranice.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+HTML obrasci
+
+⚫ HTML <form> element definira obrazac koji se koristi za prikupljanje korisničkih unosa.
+⚫ Svaki obrazac sadrži elemente obrasca.
+⚫ Elementi obrasca su različite vrste elemenata za unos, kao što su tekstualna polja, potvrdni okviri,
+radio gumbi, gumbi za slanje i još mnogo toga.

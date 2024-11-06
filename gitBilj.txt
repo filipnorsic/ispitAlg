@@ -1,8 +1,8 @@
 GIT
 
 git init - novi lokalni repozitorij
-git status - provjera stanja repozitorija
-git add <datoteka> - dodavanje promjena u index
+git status - Prikazuje stanje radnog direktorija i indeksa.
+git add <datoteka> - dodavanje promjena u index za slijedeći komit
 git add . - dodavanje svih datoteka u index (all)
 git commit - spremanje novog stanja projekta u lokalni repozitorij
 git commit -m spremanje novog stanja projekta u lokalni repozitorij sa porukom (ime commita)
@@ -13,14 +13,33 @@ git checkout main (master) - vračanje natrag na zadnji commit
 
 VIM
 
+• VI je tekstualni editor koji se često koristi u Unix i Linux
+sustavima.
+• VI je kratica za visual editor.
+• VI editor ima dva načina rada: naredbeni način i način
+umetanja.
+• VI posjeduje UNDO mogućnost.
+
+Prednosti i nedosatci VI editora:
+- nema grafičko sučelje
+- jednostavan no opet robustan
+- napredne mogućnosti editiranja (npr. korištenje regularnih izraza za pretraživanje teksta i zamjenjivanje dijelova teksta)
+- provjera pravopisa
+- brojni dodatci (plugins) kojima se dodaju nove funkcionalnosti 
+
+
 i -input mode
 esc - izlaz iz input moda
-:wq - spremanje
+:wq - spremanje i izlaz i datoteke
+:w - spremanje datoteke
+:q - izlazak iz VI editora
+:q! - izlazak iz VI editora bez spremanja promjena
+
 
 git branch -M    main (mastre) grane
-git branch - ispiše sve grane (lokalne)
+git branch - ispiše sve grane (lokalne) (stvara novu granu)
 git branch ime_grane - stvara novu granu
-git checkout ime(dev) - prebacivanje u granu (dev)
+git checkout ime(dev) - prebacivanje u granu (dev) (Prebacuje trenutni direktorij na drugu granu ili commit.)
 git checkout -b ime     - stvori novu granu i odmah se prebaci na nju
 
 BRISANJE BRANCHA - pozicionirati se u main (u branch koji nećemo brisati)
@@ -28,12 +47,49 @@ BRISANJE BRANCHA - pozicionirati se u main (u branch koji nećemo brisati)
                 git branch -D ime_brencha   - force delete (ne pita da li ste sigurni)
 
 git merge ime - treba se pozicionirati u branch koji želimo mergati, ime upisujemo koji spajamo sa onim u kojem se nalazimo
+                (Spaja dvije grane ili commita.)
 
 git remote -v    - na koji repozitorij je spojen
 git push -u origin ime   - prvi puta ako pushamo sa lokalnog rep na udaljeni, a na udaljenom branch ne postoji
+git push : Šalje lokalne promjene na udaljeni repozitorij.
 
 git branch -a     - vidiš lokalne i udaljene branchove
 
 git clone link    - kloniranje udaljenog repozitorija na lokalni
 git pull   - povuče sve promjene sa git huba na lokalni rep.
 git fetch - osvježi info na lokalnom rep s obzirom na udaljeni repo
+
+
+
+
+• Svrha kontrole verzija u razvoju softvera
+je praćenje promjena u izvornom kodu
+softvera tijekom vremena, kako bi se
+omogućilo lakše upravljanje timom
+developera, praćenje promjena i
+vraćanje na prethodne verzije softvera
+ako je potrebno.
+• Git je distribuirani sustav za upravljanje
+verzijama softvera koji se koristi za
+praćenje promjena u izvornom kodu
+tijekom vremena.
+
+
+
+Savjeti za učinkovit rad s Git-om!
+
+ Redovito commitajte svoje promjene: Dobro je napraviti commit nakon svake značajnije promjene u kodu. Ovo
+čini povijest vašeg koda jasnijom i olakšava praćenje promjena.
+ Komentirajte svoje commit poruke: U svojoj commit poruci uvijek napišite kratak opis promjena koje ste
+napravili. To će pomoći drugim programerima da shvate što ste promijenili i zašto ste to učinili.
+ Koristite grane: Grane (branches) su odličan način da eksperimentirate s novim značajkama i da radite na više
+stvari istovremeno. Ako radite na nečemu što bi moglo pokvariti stabilnost glavne grane, možete raditi na svojoj
+grani sve dok niste spremni za spajanje (merge).
+ Redovito ažurirajte svoj repozitorij: Povlačenje (pull) promjena s drugih grana i repozitorija važno je da bi se
+osiguralo da imate najnoviju verziju koda s kojim radite.
+ Upotrijebite .gitignore: Ako imate datoteke koje ne želite pratiti s Git-om (npr. privremene datoteke, lozinke i sl.),
+dodajte ih u .gitignore datoteku kako bi Git ignorirao ove datoteke.
+ Usvojite osnovne koncepte Git-a: Da bi ste bolje razumjeli Git, trebali bi se upoznati s osnovnim konceptima kao
+što su indeks (index), grane (branches), commiti i sl.
+ Redovito back-up-irajte vaše datoteke: Iako Git čuva sve promjene u kodu, dobro je imati back-up vašeg
+repozitorija u slučaju gubitka podataka ili kvara hardvera.
