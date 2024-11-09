@@ -1,0 +1,113 @@
+
+• "==" uspoređuje samo vrijednosti, dok "===" uspoređuje i
+vrijednosti i tipove podataka.
+• INCLUDE generira samo upozorenje ako datoteka nije
+pronađena, dok REQUIRE generira fatalnu pogrešku.
+• Svrha PHP funkcije "spl_autoload_register„ je registrirati
+funkciju koja se automatski poziva kada je klasa nedefinirana.
+• Imenski prostor (namespace) u PHP-u je način izbjegavanja
+sukoba naziva između klasa, funkcija i varijabli.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+PHP VARIJABLE
+
+⚫ varijable su veličine koje tijekom izvršavanja PHP programa mogu mijenjati svoju vrijednost
+⚫ u PHP-u oznake za varijable moraju početi znakom dolara $
+⚫ iza znaka dolara naziv mora početi slovom ili znakom „_”
+⚫ ime varijable ne smije početi brojem, ali ga može sadržavati na bilo kojoj drugoj poziciji u imenu
+⚫ PHP razlikuje velika i mala slova u nazivu varijable
+⚫ ime varijable mora biti definirano u skladu sa značenjem vrijednosti koja se pamti u okviru
+varijable
+⚫ inicijalna vrijednost varijable se dodjeljuje pomoću znaka (=) jednako
+
+• Varijable se koriste za pohranu podataka
+koji se kasnije mogu koristiti tijekom
+izvršavanja programa.
+• Globalne varijable su definirane izvan
+funkcije i mogu se koristiti unutar bilo koje
+funkcije. One su dostupne u cijelom
+programu. Deklariranje globalne varijable
+koristimo $GLOBALS['variable_name'];
+• Static varijable su lokalne varijable, ali
+zadržavaju svoju vrijednost između poziva
+funkcije.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+KONSTANTE
+
+⚫ konstanta sadrži vrijednost isto kao i varijabla, ali za razliku od varijable, kojoj se vrijednost može
+mijenjati tijekom izvođenja programa, vrijednost konstante se ne mijenja
+⚫ oznake za konstante su bez znaka dolara ispred naziva
+⚫ imena konstanti poželjno je pisati velikim slovima kako bi bile prepoznatljive, ali mogu se pisati i
+malim slovima
+⚫ konstantu u programu možemo pisati kao vrijednost bez ikakve oznake, (na primer 3.14 za
+vrijednost PI)
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+TIPOVI podataka
+
+⚫ u PHP-u ne postoje fiksni tipovi podataka
+⚫ ne morate definirati tip varijable prije njenog korištenja
+⚫ varijablu možete deklarirati bilo kada unutar skripte i pridruživati joj različite tipove podataka
+tijekom izvođenja skripte (iako ovo nije uobičajena niti previše praktična praksa)
+⚫ isto tako, možete mijenjati tip podataka neke varijable jednog te istog sadržaja
+
+⚫ NULL - varijable kojima nije dodijeljena vrijednost imaju vrijednost tipa NULL. NULL je nepostojeća
+vrijednost, prazno polje ili polje bez vrijednosti. Napomena: i nula je vrijednost i zato ne treba
+miješati nulu i NULL.
+
+
+STRING TIP:
+Korištenjem dvostrukih navodnika (")
+možete koristiti 'special characters'.
+To su posebni znakovi koji govore PHP-u
+da izvrši određene radnje pri ispisu
+sadržaja varijable.
+To su znakovi koji slijede iza znaka
+backslash ( \ ).
+On se ujedno koristi za preskakanje
+određenog znaka unutar stringa.
+
+Drugi način odvajanja stringova su
+jednostruki navodnici (').
+Kad je string unutar jednostrukih
+navodnika, jedini escape znakovi koje će
+PHP razumjeti su "\\" i "\'".
+Varijable navedene unutar jednostrukih
+navodnika se neće koristiti kao varijable,
+već kao najobičniji niz znakova.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+REFERENCE
+
+Reference u php-u su način pristupanja istom sadržaju
+varijable pod različitim imenima.
+Oznaka za referencu je znak „&”.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+PHP FUNKCIJE
+
+• U PHP-u, funkcija je blok koda koji se može pozivati iz drugih
+dijelova programa kako bi se izvršile određene radnje.
+• Kada proslijedite argument referencom na funkciju u PHP-u tada
+funkcijom modificiramo izvornu varijablu.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+PHP NIZOVI
+
+• Indeksirani nizovi koriste cijele brojeve kao ključeve, dok asocijativni
+nizovi koriste tekstovne znakove kao ključeve.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+KONKATENACIJA
+
+Jedini operator nad stringovima je točka „.”
+Ovaj operator se koristi za pridruživanje
+(konkatenaciju) stringova: spajanje dva i više
+znakovna izraza u jedan.
