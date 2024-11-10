@@ -59,3 +59,81 @@ for ($i = 1; $i <= 100; $i++){
 ?>
 
 -------------------------------------------------------------------------------------------------------------------------------------
+
+Napišimo funkciju u PHP-u
+koja prima dva parametra:
+• broj brojeva koji se
+generiraju i s kojim brojem
+bi trebali biti djeljivi
+• dodaje generirane brojeve
+na kraj polja.
+
+<?php
+
+function generiraj_djeljive_brojeve($broj_brojeva, $dijeljiv_s, &$niz_brojeva){
+
+    for($i = 1; $i <= $broj_brojeva; $i++){
+        array_push($niz_brojeva, $i*$dijeljiv_s);
+    }
+    return $niz_brojeva;
+}
+
+$niz_brojeva = array(10,20,30,40,50);
+$dijeljiv_s = 7;
+$broj_brojeva = 5;
+
+generiraj_djeljive_brojeve($broj_brojeva, $dijeljiv_s, $niz_brojeva);
+print_r($niz_brojeva);
+
+?>
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+/*zdatak:
+⚫ Definirajte varijablu names i dodijelite joj niz koji sadrži pet imena.
+⚫ Koristeći petlju foreach, iz niza ispišite ključeve i pripadajuće im vrijednosti.*/
+
+$names = array("John", "Jane", "Doe", "Smith", "Doe");
+foreach($names as $key => $value){
+    echo $key . " => " . $value . "<br>";
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+⚫ Proizvoljno deklarirajte funkciju koja ima jedan argument (number). Funkcija treba imati lokalnu
+varijablu u koju će pribrojiti vrijednost argumenta number te istu vratiti kao rezultat. Vrijednost
+treba biti zadržana kod svakog poziva funkcije.
+⚫ Deklarirajte funkciju kao varijablu.
+⚫ Pozovite funkciju pomoću varijable, a kao vrijednost argumenta pošaljite slučajan broj u rasponu
+od 1 do 10 te ispišite rezultat.
+⚫ Ponovite postupak pet puta.
+
+<?php
+function randomAdd(int $number): int{
+    static $sum = 0;
+    $sum += $number;
+    return $sum;
+}
+
+$sum = randomAdd(5);
+echo $sum;
+$sum = randomAdd(5);
+echo $sum;
+
+$test = 'randomAdd';     //varijabli dodajemo funkciju, ovo nije dobro raditi
+var_dump($test(5));
+
+
+?>
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Kako deklarirati PHP funkciju koja prihvaća promjenjivi broj argumenata?
+(zadatak)
+
+function mul( ...$numbers ) { 
+     print_r($numbers);
+   }
+   mul(55, 16, 22, 99);
+
+-------------------------------------------------------------------------------------------------------------------------------------
