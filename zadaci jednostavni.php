@@ -137,3 +137,285 @@ function mul( ...$numbers ) {
    mul(55, 16, 22, 99);
 
 -------------------------------------------------------------------------------------------------------------------------------------
+
+<?php
+/*
+kreiraj niz koji sadrzi podatke o studentima
+1. filtriraj studente koji imaju prosječnu ocjenu iznad 3.5
+2. izračunaj prosječnu ocijenu svih studenata koji su prošli filtraciju
+3. odredi broj studenata u svakoj godini studija
+*/ 
+
+//1.
+$studenti = [
+    ["ime" => "Ana", "prezime" => "Anić", "godina" => "prva", "prosjek" => 4.2],
+    ["ime" => "Ivan", "prezime" => "Ivanić", "godina" => "druga", "prosjek" => 3.1],
+    ["ime" => "Marko", "prezime" => "Markovski", "godina" => "treca", "prosjek" => 3.7],
+    ["ime" => "Lucija", "prezime" => "Lucić", "godina" => "prva", "prosjek" => 4.8],
+    ["ime" => "Hrvoje", "prezime" => "Hrvatko", "godina" => "druga", "prosjek" => 4.0],    
+];
+
+$izvrsniStudenti = array_filter($studenti, function($student){
+    return $student["prosjek"] > 3.5;
+});
+
+print_r($izvrsniStudenti);
+
+//2.
+
+$arrayProsjeka = array_column($izvrsniStudenti, "prosjek");
+$prosjekIzvrsnihStudenata = array_sum($arrayProsjeka) / count($izvrsniStudenti);
+print_r($prosjekIzvrsnihStudenata);
+
+//3.
+ $arrayGodina= array_column($studenti, "godina");
+ print_r($arrayGodina);
+
+ $brojStudenataUSvakojGodini = array_count_values($arrayGodina);
+ print_r($brojStudenataUSvakojGodini);
+
+
+?>
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+<?php
+/*
+$fruits =["jabuke", "banane", "naranče", "kiwi", "mango"];
+$fruits[] = "ananas";
+array_push($fruits, "grožđe");
+unset($fruits[0]);      //makne prvi element, ali ostali indexi ostaju kakvi su bili
+array_shift($fruits);    //makne prvi element i preindexira ostale elemente, poreda ih od nule na dalje
+
+
+
+print_r($fruits) ;
+
+*/
+
+//kreiraj dva niza koji sadrže po tri broja
+//spoji ova dva niza u jedan niz
+/*
+$prvi = [2, 3, 7];
+$drugi = [2, 5, 9];
+$spojeniNiz = array_merge($prvi, $drugi);
+$spojeniNiz = [...$prvi, ...$drugi];
+
+print_r($spojeniNiz);
+*/
+
+//kreiraj niz koji sadrži 5 ocjena, izračunaj prosječnu ocjenu
+/*
+$ocjene = [2,4,5,3,4];
+$rezultat = array_sum($ocjene) / count($ocjene);
+print_r($rezultat);
+*/
+
+//kreiraj niz sa 10 brojeva i izdvoji sve brojeve 
+//veće od 5 u novi niz
+
+$brojevi = [1,8,6,4,8,3,7,1,0,5];
+$brojeviVeciOdPet = array_filter($brojevi, function($broj){
+    return $broj > 5;
+});
+$reindeksiraniBrojevi = array_values($brojeviVeciOdPet);
+print_r($reindeksiraniBrojevi);
+
+
+?>
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+//napišite php skriptu koja provjerava koji je dan u tjednu i  ispisuje odgovarajuču poruku
+/*
+$danUTjednu = date("N");
+    switch($danUTjednu){
+        case 1:
+            echo "Danas je ponedjeljak";
+            break;
+        case 2:
+                echo "Danas je utorak";
+                break;  
+        case 3:
+                echo "Danas je srijeda";
+                break; 
+        case 4:
+                echo "Danas je četvrtak";
+                break;
+        case 5:
+                echo "Danas je petak";
+                break;
+        case 6:
+                echo "Danas je subota";
+                break;
+        case 7:
+                echo "Danas je nedjelja";
+                break;
+        default: echo "nepoznat dan";
+        break;
+    }
+*/
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+<?php
+/*
+$studenti = [
+
+        "Ana" => 95,
+        "Ivan" => 85,
+        "Petar" => 75,
+        "Maja" => 65,
+        "Jasna" => 55,
+        "Marko" => 45,
+        "Iva" => 35,
+        "Luka" => 25,
+        "Klara" => 15,
+        "Filip" => 5
+
+];
+
+foreach($studenti as $ime => $bodovi){
+    echo "Student/ica $ime je dobio/la ocjenu ";
+    if($bodovi > 92){
+        echo "odličan";
+    }elseif($bodovi > 75){
+        echo "vrlo dobar";
+    }elseif($bodovi > 62){
+        echo "dobar";
+    }elseif($bodovi > 51){
+        echo "dovoljan";
+    }else{
+        echo "nedovoljan";
+    }
+    echo "<br>";
+
+
+}
+
+*/
+?>
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+<?php
+
+
+
+//1. zadatak
+//napiši funkciju koja vrača neki tekst
+//pozovite funkciju i vračenu vrijednost dodjelite varijabli
+//ispiši vrijednost varijable
+/*
+function vratiTekst(): string{
+    return 'ovo je neki tekst';
+}
+
+$tekst = vratiTekst();
+
+echo $tekst;
+*/
+
+//zadatak 2
+//napiši funkciju koja ima dva parametra, ime i prezime
+//funkcija treba konkatenirati ime i prezime i zapisati u lokalnu varijablu
+//zatim vrijednost u lokalnoj varijabli treba pretvoriti u velika slova 
+//funkcija treba vratiti vrijednost lokalne varijable
+// pozovite funkciju i spremite vračenu vrijednost u varijablu
+// ispiši vrijednost varijable
+/*
+function fullName (string $name, string $surname):string{
+
+    $result = $name . ' ' . $surname;
+    return mb_strtoupper($result);
+}
+
+$fullName = fullName('Filip', 'Noršić');
+
+echo $fullName;
+*/
+
+//zadatak 3 callback funkcija
+
+
+function mat(int $a, int $b, callable $callback): int{
+
+return $callback($a, $b);
+
+}
+
+mat(5, 10, 'add');
+function add($a, $b){
+    return $a + $b;
+}
+
+add(5, 10);
+
+$zbroji = 'add';
+$zbroji(5, 10);
+
+?>
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+ISPISUJE BROJEVE UNATRAG, POZIVANJE FUNKCIJE U FUNKCIJI (rekurzija)
+
+<?php
+
+function countDown(int $number) : void {
+if ($number === 0) {
+    return;
+}
+echo $number;
+countDown($number -1);
+}
+
+countDown(3);
+
+?>
+
+FAKTORIJAL:
+
+<?php
+function faktorijal (int $number): int {
+    if ($number === 1){
+        return 1;
+    }
+    return $number * faktorijal($number -1);
+}
+
+faktorijal(3);
+/*
+faktorijal(1) -> "vrati 1"
+faktorijal(2) -> vrati 2*1=2
+faktorijal(3) -> vrati 3*2*1=6
+*/
+?>
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+REFERENCA ZADATAK
+
+<?php
+
+$age = 30;
+
+function promijeniGodine(int $godine): void {
+    $GLOBALS['age'] = $godine;
+    
+}
+
+promijeniGodine(40);
+echo $age;
+
+function promijeniGodineReferenca (int &$godine, int $value) : void {
+    $godine = $value;
+}
+
+promijeniGodineReferenca($age, 50);
+
+echo $age;
+
+?>
+
+-------------------------------------------------------------------------------------------------------------------------------------

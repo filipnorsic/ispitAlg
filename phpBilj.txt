@@ -282,5 +282,12 @@ file_put_contents(__DIR__. '/knjige.json', $booksJson);
 
 -------------------------------------------------------------------------------------------------------------------------------------
 
+REKURZIJA
+
+Rekurzija u PHP-u podrazumijeva funkciju koja poziva samu sebe unutar vlastitog tijela.
+Koristi se za rješavanje problema koji mogu biti razbijeni na manje, slične probleme.
+Rekurzija je česta kod problema koji uključuju hijerarhijske strukture (npr. stabla), 
+faktore niza, i slične matematičke ili iterativne procese.
+
 
 
