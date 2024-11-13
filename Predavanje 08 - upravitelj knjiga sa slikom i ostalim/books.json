@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "title": "Harry Potter",
+        "author": "J.K. Rowling",
+        "year": 1998
+    },
+    {
+        "id": 2,
+        "title": "The Lord of the Rings",
+        "author": "J.R.R. Tolkien",
+        "year": 1954
+    },
+    {
+        "id": 3,
+        "title": "Filip",
+        "author": "Norsic",
+        "year": 1991,
+        "image": "uploads\/1715017628_harry.jpg"
+    }
+]
