@@ -419,3 +419,21 @@ echo $age;
 ?>
 
 -------------------------------------------------------------------------------------------------------------------------------------
+
+zadatak:
+imamo ulazni niz, treba vratitni novi niz sa brojevima vecim ili jednakom od 10,
+treba uvecati brojeve puta 2 i sortirati ih od manjeg prema vecem
+
+
+$ulazniNiz = array(2, 5, 10, 15, 20, 25, 30, 3, 7, 8, 12, 17);
+
+foreach($ulazniNiz as $broj){
+    if($broj >= 10){
+        $broj = $broj * 2;
+        $noviNiz[] = $broj;
+        asort($noviNiz);
+    }
+}
+var_dump($noviNiz);
+
+-------------------------------------------------------------------------------------------------------------------------------------
