@@ -1,0 +1,11 @@
+PARCIJALNI ISPIT – Baza podataka za vođenje evidencije zaposlenih
+
+Imamo tvrtku kojoj treba kreirati bazu podataka kako bi mogla voditi evidenciju o zaposlenicima,
+njihovim pozicijama i plaćama. Tvrtka ima više odjela. Svaki zaposlenik može raditi u više odjela, a
+ujedno može biti i voditelj odjela.
+1. Kreirajte ER dijagram baze podataka.
+2. Normalizirajte bazu podataka te istu kreirajte.
+3. Popunite bazu s nekoliko podataka u svakoj tablici.
+4. Dohvatite sve zaposlenike i njihove plaće.
+5. Dohvatite sve voditelje odjela i izračunajte prosjek njihovih plaća.
+6. Kreirajte proceduru koja će računati prosjek plaća svih zaposlenika.
