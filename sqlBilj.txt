@@ -1,0 +1,338 @@
+⚫ Baza podataka je organizirani skup podataka pohranjenih u računalu na sustavan način, tako da joj
+se računalni program može obratiti prilikom odgovaranja na problem.
+⚫ Računalni program korišten za upravljanje i ispitivanje baze podataka nazvan je sustav upravljanja
+bazom podataka.
+⚫ Relacijski model baze podataka je poseban tip baze podataka kod kojeg se organizacija podataka
+zasniva na relacijskom modelu.
+⚫ Podaci se u ovakvim bazama organizuju u skup relacija između kojih se definiraju određene veze.
+Relacija se definira kao skup n-torki sa istim atributima, definiranih nad istim domenima iz kojih
+mogu da uzimaju vrijednosti.
+⚫ U relacijskim bazama podataka, svaka relacija mora da ima definiran primarni ključ, koji
+predstavlja atribut pomoću kojeg se jedinstveno identificira svaka n-torka. Relacija opcionalno
+može da posjeduje i strani ključ, preko kojeg ostvaruje vezu sa drugim relacijama.
+⚫ Osnovi element koji se pohranjuje u bazi naziva se entitet. Entitet može biti bilo što: osoba, neki
+objekt, događaj, služba u nekoj organizaciji i sl. dakle stvari iz stvarnog života o kojima želimo
+čuvati informacije.
+⚫ Drugi važan pojam u teoriji baza podataka jeste relacija. Kao što u stvarnom životu postoje
+određeni međusobni odnosi između dvije ili više osoba, događaja isl. tako se i u bazama podataka
+mogu pojaviti određeni odnosi ili relacije između raznih entiteta, koji se na odgovarajući način
+predstavljaju unutar same baze.
+⚫ Prema vrsti, relacije se mogu podijeliti na relacije jedan prema jedan, jedan prema više odnosno
+više prema jedan te više prema više.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+• MySQL je besplatni open-source sustav za upravljanje relacijskim bazama
+podataka.
+• ER (Entity-Relationship) dijagram je grafički prikaz veza između entiteta u
+bazi podataka.
+• Ovaj dijagram prikazuje shemu baze podataka i pomaže u vizualnom
+predstavljanju relacija između različitih tablica i entiteta.
+• ER dijagrami se sastoje od entiteta, veza i atributa.
+• Entiteti predstavljaju različite tablice ili objekte u bazi podataka.
+• Veze prikazuju relacije između različitih entiteta.
+• Atributi su svojstva entiteta i mogu biti primarni ključevi, strani ključevi ili jednostavni
+atributi.
+-------------------------------------------------------------------------------------------------------------------------------------
+
+• Entitet: Predstavljen pravokutnikom s imenom entiteta unutar njega.
+• Atribut: Predstavljen elipsom s imenom atributa unutar njega. Može biti
+primarni ključ, strani ključ ili jednostavni atribut.
+• Veza: Predstavljen linijom koja povezuje dva ili više entiteta. Može biti
+jedan-na-jedan, jedan-na-mnogo, mnogo-na-jedan ili mnogo-na-mnogo.
+• Strani ključ: Identifikator entiteta koji se koristi za stvaranje veze s
+drugom tablicom. Označen je rombom.
+• Kardinalnost: Ovaj simbol označava broj entiteta koji se mogu povezati
+preko veze. Može biti 1 (jedan), N (mnogi) ili 0..1 (nijedan ili jedan).
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Normalizacija
+
+• U normalizaciji baze podataka, forme predstavljaju različite normalne
+forme koje baza podataka treba ispuniti kako bi se postigla
+efikasnost, fleksibilnost i integritet podataka.
+
+⚫ Normalizacija je postupak organiziranja podataka s ciljem kreiranja učinkovite, pouzdane
+(sačuvan integritet baze podatka) i fleksibilne baze podataka.
+
+⚫ Pri dizajniranju baze podataka potrebno je donijeti odluke o tome koje entitete načiniti, koje će
+atribute ti entiteti sadržavati, te kakve relacije između entiteta treba uspostaviti.
+
+⚫ Normalizacija (engl. Normalization) je postupak primjene niza pravila kojima se osigurava
+optimalna struktura baze podataka. Normalne forme su niz primjene tih pravila.
+
+
+Normalizacija - 1NF
+
+⚫ Prva normalna forma zahtjeva atomičnost
+polja tablice i da svi zapisi moraju imati isti
+broj polja. To znači da se u istom polju ne
+mogu zapisivati ime i prezime.
+⚫ Razlog postojanja ovog pravila je to što je
+nemoguće pretraživati ili sortirati podatke
+prema imenu ili prezimenu ukoliko se obje
+vrijednosti nalaze u istom polju.
+⚫ Slijedeći zahtjev koji tablica mora zadovoljiti
+da bi bila u 1NF je ne sadržavati vrijednosti
+koje se ponavljaju.
+• Tablica je u 1NF ako nema ponavljajućih grupa ili nizova.
+
+
+Normalizacija - 1NF
+
+⚫ Prva normalna forma zahtjeva atomičnost
+polja tablice i da svi zapisi moraju imati isti
+broj polja. To znači da se u istom polju ne
+mogu zapisivati ime i prezime.
+⚫ Razlog postojanja ovog pravila je to što je
+nemoguće pretraživati ili sortirati podatke
+prema imenu ili prezimenu ukoliko se obje
+vrijednosti nalaze u istom polju.
+⚫ Slijedeći zahtjev koji tablica mora zadovoljiti
+da bi bila u 1NF je ne sadržavati vrijednosti
+koje se ponavljaju.
+• Druga normalna forma (2NF): Svaka tablica mora imati primarni
+ključ, a svi ostali atributi u tablici moraju biti ovisni o primarnom
+ključu.
+
+Normalizacija - 3NF
+
+⚫ Treća normalna forma zahtjeva da je
+zadovoljena 2NF i sva polja koja nisu dio
+glavnog ključa ne smiju međusobno ovisiti
+jedno o drugom.
+⚫ Treba izbaciti sva izračunavanja u tablici npr.
+kada uz polja [Cijena] i [Količina] želimo
+pomnožiti te podatke i pohraniti u polje
+[Ukupno].
+⚫ Problem se javlja kada ažuriramo polje
+[Cijena] ili polje [Količina] jer se polje
+[Ukupno] ([Cijena]*[Količina]) ne ažurira
+automatski. Zato ga treba izbaciti po 3NF.
+• Treća normalna forma (3NF): Svaki atribut koji nije dio primarnog
+ključa treba biti ovisan samo o primarnom ključu, a ne na drugim
+atributima u tablici
+
+
+Denormalizacija
+- ili namjerno odstupanje od normalnih formi.
+- Osnovni razlog za denormalizaciju je poboljšanje značajki brzine baze podataka.
+- Prilikom pitanja odustajanja od normalizacije moramo se pitati je li nam poboljšanje značajki ili
+lakoća održavanja baze podataka.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+DLM naredbe
+
+Data Manipulation Language. Koriste se za manipulaciju podacima u tablicama.
+
+DCL naredbe
+
+Data Control Language. Skup naredbi u MySQL-u koje se koriste za kontrolu pristupa podacima i upravljanje
+sigurnošću sustava.
+
+DDL naredbe
+
+Data Definition Language.  Koriste se za definiranje, mijenjanje i brisanje struktura baze podataka i njenih objekata.
+Naredbe se koriste za stvaranje tablica, indeksa, ograničenja, gledišta i drugih objekata baze podataka.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+MySQL DML(DQL) naredbe
+
+• SELECT - koristi se za dohvaćanje podataka iz tablice ili više
+tablica.
+⚫ DQL koriste se za izvršavanje upita na
+podacima unutar shema objekata.
+• INSERT - koristi se za umetanje novih redova u tablicu.
+• UPDATE - koristi se za ažuriranje postojećih zapisa u tablici.
+• DELETE - koristi se za brisanje redova iz tablice.
+
+
+MySQL DCL naredbe
+
+• GRANT - dodjeljuje korisniku pravo pristupa bazi podataka i tablicama. Ova naredba
+može se koristiti za određivanje prava pristupa i ograničenja na razini korisnika ili na
+razini baze podataka.
+• REVOKE - uklanja pravo pristupa koje je dodijeljeno korisniku pomoću GRANT
+naredbe.
+• CREATE USER - stvara novog korisnika i dodjeljuje mu lozinku za pristup MySQL bazi
+podataka.
+• DROP USER - briše korisnika iz MySQL baze podataka.
+• ALTER USER - mijenja korisničko ime ili lozinku postojećeg korisnika.
+• CREATE ROLE - stvara novu ulogu koja može biti dodijeljena korisniku.
+• DROP ROLE - briše ulogu iz MySQL baze podataka.
+
+
+MySQL DDL naredbe
+
+• CREATE: koristi se za stvaranje novih objekata baze podataka, kao što su
+tablice, indeksi ili ograničenja. Koristi se za izradu baze podataka ili njenih objekata (poput tablice, indeksa,
+funkcija, prikaza, postupka pohrane i okidača).
+• ALTER: koristi se za promjenu strukture postojećih objekata baze
+podataka, kao što su dodavanje ili brisanje stupaca, indeksa ili
+ograničenja.
+• DROP: koristi se za brisanje objekata baze podataka, kao što su tablice,
+indeksi ili ograničenja.
+• TRUNCATE: koristi se za brisanje podataka iz tablice, ali ne i same tablice
+ili njenih struktura.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+⚫ SQL jezik sastoji se od ključnih riječi na engleskom koje se mogu podijeliti u nekoliko grupa:
+
+– DCL (engl. Data Control Language) – jezika za kontrolu podataka
+– DML (engl. Data Manipulation Language) – jezik za manipulaciju podacima
+– DDL (engl. Data Definition Language) – jezik za definiranje podataka
+– DQL (engl. Data Query Language) – jezik za izvršavanje upita nad podacima
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+TIPOVI podataka
+
+⚫ Maksimalnu dužinu znakova kod definicije tipa
+podatka upisujete u uglate zagrade (), npr.
+VARCHAR (50), što znači da to polje može
+primiti string maksimalne dužine do 50
+znakova.
+⚫ CHAR tip podataka zbog toga što je fiksne
+dužine je malo brži kod VARCHAR, jer je u
+cijelom stupcu zapravo ne mijenja svoju dužinu,
+već ostaje isti. No zbog fiksne dužine troši više
+memorije nego VARCHAR.
+⚫ BLOB i TEXT su po svojoj duljini jednaki i
+zapravo predstavljaju verziju VARCHAR tipa
+podataka koji može spremiti više od 255
+znakova, točnije 65535.
+⚫ Cijeli brojevi (integer) imaju dodatnu opciju
+zvanu UNSIGNED koja određeni numerički tip
+umjesto u raspon od negativnog do pozitivnog
+prebacuje u pozitivni raspon počevši od nule.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+PRIMARNI KLJUČ
+
+⚫ Primarni ključ je stupac ili skup stupaca koji
+jedinstveno identificira svaki red u tablici. Primarni
+ključ slijedi ova pravila:
+– Primarni ključ mora sadržavati jedinstvene
+vrijednosti. Ako se primarni ključ sastoji od
+više stupaca, kombinacija vrijednosti u tim
+stupcima mora biti jedinstvena.
+– Stupac primarnog ključa ne može imati
+NULL vrijednosti. Svaki pokušaj umetanja ili
+ažuriranja NULL u stupcima primarnog
+ključa rezultirat će pogreškom. Imajte na
+umu da MySQL implicitno dodaje NOT
+NULL ograničenje stupcima primarnog
+ključa.
+– Tablica može imati samo jedan primarni
+ključ.
+-------------------------------------------------------------------------------------------------------------------------------------
+
+STRANI KLJUČ
+
+Strani ključ je stupac ili grupa stupaca u tablici koji se povezuje na stupac ili grupu stupaca u drugoj tablici.
+Strani ključ postavlja ograničenja na podatke u povezane tablice, što MySQL-u omogućuje održavanje referentnog integriteta.
+Strani ključ održava referentni integritet između podređene i nadređene tablice pomoću klauzula ON DELETE i ON UPDATE.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+MySQL ima pet referentnih opcija:
+⚫ CASCADE: ako je redak iz nadređene tablice izbrisan ili ažuriran, vrijednosti odgovarajućih redaka u podređenoj 
+tablici automatski se brišu ili ažuriraju.
+⚫ SET NULL: ako je redak iz nadređene tablice izbrisan ili ažuriran, vrijednosti stupca stranog ključa (ili stupaca) 
+u podređenoj tablici postavljene su na NULL.
+⚫ RESTRICT: ako red iz nadređene tablice ima odgovarajući redak u podređenoj tablici, MySQL odbija brisanje ili 
+ažuriranje redaka u nadređenoj tablici.
+⚫ NO ACTION: isto je kao i RESTRICT.
+⚫ SET DEFAULT: prepoznaje MySQL parser. Međutim, ovu radnju odbacuju i InnoDB i NDB tablice.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+Spajanja
+
+INNER JOIN: Vraća samo one retke koji imaju podudaranja u oba tablice koje se spajaju.
+
+LEFT JOIN: Vraća sve retke iz lijeve tablice i pripadajuće podudarajuće retke iz desne tablice. Ako
+ne postoji podudaranje, za desnu tablicu se postavljaju NULL vrijednosti.
+
+RIGHT JOIN: Vraća sve retke iz desne tablice i pripadajuće podudarajuće retke iz lijeve tablice.
+Ako ne postoji podudaranje, za lijevu tablicu se postavljaju NULL vrijednosti.
+
+FULL OUTER JOIN: Vraća sve retke iz obje tablice i pripadajuće podudarajuće retke. Ako ne
+postoji podudaranje, za tablicu za koju ne postoji podudaranje postavljaju se NULL vrijednosti.
+
+CROSS JOIN: Vraća sve moguće kombinacije između retka iz lijeve tablice i retka iz desne
+tablice.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Transakcije
+
+• MySQL transakcije su skup radnji koje se izvode kao jedna logička cjelina, a to
+znači da se sve radnje izvršavaju ili ne izvršavaju u cijelosti.
+• U slučaju da se dogodi bilo kakva pogreška tijekom transakcije, sve izmjene se
+vraćaju na stanje prije početka transakcije.
+
+• START TRANSACTION označava početak transakcije
+• COMMIT potvrđuje sve promjene koje su napravljene tijekom transakcije.
+• ROLLBACK se koristi za poništavanje svih promjena koje su napravljene tijekom
+transakcije i vraćanje baze podataka u stanje prije početka transakcije.
+• SAVEPOINT točke spremanja koriste se za označavanje točke u transakciji na
+koju se kasnije možete vratiti.
+
+Primjer tranaskcije:
+
+START TRANSACTION;
+
+INSERT INTO korisnici (ime, email, zaporeka)
+VALUES ('Ivan Ivić', 'ivan@gmail.com', 'password123');
+UPDATE racuni SET stanje = stanje - 100 WHERE user_id = 1;
+UPDATE racuni SET stanje = stanje + 100 WHERE user_id = 2;
+
+COMMIT;
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+MySQL view
+
+• MySQL View je virtualna tablica koja se sastoji od upita koji se izvode na
+jednoj ili više postojećih tablica u bazi podataka.
+• View se kreira naredbom CREATE VIEW, a briše se naredbom DROP
+VIEW.
+• View se mijenja naredbom ALTER VIEW.
+
+• Preko pogleda se mogu mijenjati podaci.
+• Pogledi se mogu spajati.
+• Moguće je napraviti pogled od pogleda.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+INDEKSI
+
+• Indeksi u MySQL-u su posebne strukture koje se koriste za poboljšanje performansi upita.
+• Indeksi se stvaraju na jednoj ili više kolona u tablici i pomoću njih se optimiziraju upiti koji
+uključuju te kolone u svojim uvjetima pretraživanja.
+• Kada MySQL izvršava upit koji uključuje uvjete pretraživanja, on prvo provjerava indekse
+kako bi pronašao odgovarajuće redove u tablici.
+• To može značajno smanjiti vrijeme izvođenja upita, posebno ako tablica ima veliki broj
+redova.
+
+Indeksi se mogu koristiti za ubrzavanje naredbi SELECT, UPDATE i
+DELETE.
+
+Naredba CREATE INDEX stvara indeks na jednom ili više stupaca tablice.
+
+Indeksi se mogu obrisati pomoću naredbe DROP INDEX
+
+Grupirani indeks (clustered index) određuje fizički redoslijed redaka u
+tablici.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
