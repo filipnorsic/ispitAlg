@@ -285,6 +285,36 @@ transakcije i vraćanje baze podataka u stanje prije početka transakcije.
 • SAVEPOINT točke spremanja koriste se za označavanje točke u transakciji na
 koju se kasnije možete vratiti.
 
+• Commit:
+• Potvrda svih izmjena učinjenih u transakciji.
+
+• Rollback:
+• Poništavanje svih izmjena ako dođe do greške.
+
+
+
+Razine izolacije:
+• READ UNCOMMITTED
+• Dopušta čitanje nespremljenih podataka, što može dovesti do "dirty reads," gdje transakcija može čitati podatke koje je druga
+nepotvrđena transakcija izmijenila.
+
+• READ COMMITTED
+• Sprječava "dirty reads" dopuštajući čitanje samo podataka koje su druge transakcije već potvrdile, ali i dalje može doći do "non-
+repeatable reads," gdje se isti podaci čitaju dva puta unutar jedne transakcije i mogu se razlikovati.
+
+• REPEATABLE READ (zadano u MySQL)
+• Osigurava da ako se podaci jednom pročitaju unutar transakcije, svako daljnje čitanje istih podataka unutar iste transakcije
+vrati isti rezultat, sprječavajući "non-repeatable reads" ali ne sprječava "phantom reads," gdje se nova zapisi koji odgovaraju
+upitima transakcije mogu dodati od strane drugih transakcija.
+
+• SERIALIZABLE
+• Najstroža razina izolacije koja sprječava "phantom reads" i osigurava potpunu izolaciju transakcije tako da se izvršava kao da je
+jedina transakcija u sustavu, što može rezultirati značajnim padom performansi zbog zaključavanja resursa.
+
+
+
+
+
 Primjer tranaskcije:
 
 START TRANSACTION;
@@ -302,6 +332,11 @@ MySQL view
 
 • MySQL View je virtualna tablica koja se sastoji od upita koji se izvode na
 jednoj ili više postojećih tablica u bazi podataka.
+• Upotreba: Koriste se za pojednostavljenje složenih upita, sigurnost
+podataka i poboljšanje performansi.
+• Prednosti: Sakrivanje složenosti upita, ograničavanje pristupa
+podacima, olakšavanje upravljanja bazom podataka. (• Jednostavnost korištenja kao obične tablice, ali bez potrebe za ponovnim pisanjem složenih
+upita.)
 • View se kreira naredbom CREATE VIEW, a briše se naredbom DROP
 VIEW.
 • View se mijenja naredbom ALTER VIEW.
@@ -310,6 +345,22 @@ VIEW.
 • Pogledi se mogu spajati.
 • Moguće je napraviti pogled od pogleda.
 
+
+PRIMJER:
+
+CREATE VIEW zaposlenici_pregled AS
+SELECT ime, prezime, odjel
+FROM zaposleni
+WHERE aktivan = 1;
+
+
+• Ograničenja: Ne može sadržavati naredbe kao što su ORDER BY
+određene vrste podupita, itd.
+• Najbolje prakse: Koristiti pogled za stabilne upite, izbjegavati
+previše složene upite unutar pogleda.
+• Sigurnosne mjere: Pogledi mogu pomoći u ograničavanju pristupa
+osjetljivim podacima tako što će prikazati samo potrebne
+informacije.
 -------------------------------------------------------------------------------------------------------------------------------------
 
 INDEKSI
@@ -335,4 +386,135 @@ tablici.
 
 -------------------------------------------------------------------------------------------------------------------------------------
 
+PROCEDURE
+
+• Definicija: MySQL procedure su pohranjene rutine koje omogućuju
+ponovno korištenje SQL koda.
+• Prednosti: Modularnost, smanjenje mrežnog prometa, poboljšanje
+sigurnosti.
+• Primjena: Automatizacija redovitih zadataka, kompleksne poslovne
+logike, sigurnosne kontrole pristupa.
+
+• Kreiranje procedure:
+CREATE PROCEDURE naredba.
+
+• Pozivanje procedure:
+CALL ImeProcedure();
+
+• IN parametri omogućuju
+prosljeđivanje vrijednosti
+proceduri pri pozivu.
+
+PRIMJER:
+
+DELIMITER $$
+CREATE PROCEDURE FiltrirajPoIdu (IN korisnikId INT)
+BEGIN
+    SELECT * FROM korisnici WHERE id = korisnikId;
+END $$
+DELIMITER ;
+
+• Pozivanje procedure
+CALL FiltrirajPoIdu(1)
+
+
+
+
+• OUT parametri omogućuju proceduri da vrati
+jednu ili više vrijednosti.
+• OUT parametri vraćaju vrijednosti koje
+možete pohraniti u sesijske varijable.
+• Sesijske varijable (npr. @brojKorisnika) ne
+zahtijevaju eksplicitnu deklaraciju pomoću
+DECLARE.
+
+DELIMITER $$
+CREATE PROCEDURE DohvatiBrojKorisnika(OUT broj INT)
+BEGIN
+SELECT COUNT(*) INTO broj FROM korisnici;
+END $$
+DELIMITER ;
+
+• Pozivanje procedure:
+CALL DohvatiBrojKorisnika(@brojKorisnika);
+SELECT @brojKorisnika;
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+TRIGGERI (OKIDAČI)
+
+• Što su Okidači?
+• Specijalizirane skripte unutar baze podataka
+• Automatski se izvršavaju kao odgovor na određene događaje (npr. INSERT, UPDATE, DELETE)
+• Okidač je pohranjena procedura koja se automatski izvršava
+kada se dogodi događaj u bazi podataka.
+
+    • Okidač se izvršava kod sljedećih događaja:
+    • Red je umetnut u tablicu.
+    • Red je izbrisan iz tablice.
+    • Redak je ažuriran u tablici.
+
+• OLD i NEW koriste se za referenciranje vrijednosti stupaca koji
+se mijenjaju.
+• Okidači se ne mogu koristiti za izmjenu podataka u istoj tablici
+u kojoj je okidač definiran.
+
+• Zašto koristiti Okidače?
+• Automatizacija operacija nad podacima
+• Održavanje integriteta podataka
+• Evidencija promjena u bazi podataka
+
+
+
+Vrste Okidača:
+
+• Prema vremenu izvršenja:
+• BEFORE (prije izvršenja akcije)
+• AFTER (nakon izvršenja akcije)
+
+• Prema vrsti događaja:
+• INSERT
+• UPDATE
+• DELETE
+
+
+• Prikaz svih okidača: SHOW TRIGGERS;
+• Brisanje okidača: DROP TRIGGER IF EXISTS naziv_okidača;
+
+
+
+Primjer Okidača za INSERT
+
+• Automatsko dodavanje vremena kreiranja
+• Kada se novi red unese u tablicu, okidač dodaje trenutni vremenski zapis.
+
+CREATE TRIGGER AddCreationDate
+BEFORE INSERT ON employees
+FOR EACH ROW
+SET NEW.creation_date = NOW();
+
+• BEFORE INSERT: Okidač se aktivira prije dodavanja novog reda
+• NEW.creation_date: Postavlja vrijednost stupca creation_date za novi red
+
+
+
+
+
+
+Primjer Okidača za UPDATE
+
+• Ažuriranje evidencije promjena
+• Prati promjene na stupcu salary u tablici employees.
+
+CREATE TRIGGER LogSalaryChanges
+AFTER UPDATE ON employees
+FOR EACH ROW
+WHEN (OLD.salary <> NEW.salary)
+INSERT INTO salary_changes(employee_id, old_salary,
+new_salary, change_date)
+VALUES (OLD.id, OLD.salary, NEW.salary, NOW());
+
+
+• AFTER UPDATE: Okidač se pokreće nakon ažuriranja reda
+• WHEN: Izvršava se samo ako se vrijednost salary promijenila
 
