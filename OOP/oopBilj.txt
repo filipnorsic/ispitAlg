@@ -1,0 +1,114 @@
+Objektno orijentirano programiranje (OOP)
+
+• OOP je pristup programiranju koji se temelji na objektima i
+njihovim međusobnim interakcijama.
+• U PHP-u se OOP koncepti koriste za organiziranje koda u
+višestruko iskoristive module i za smanjenje ponavljanja koda.
+• Objekti su instance klasa u PHP-u.
+• Klase definiraju svojstva (varijable) i metode (funkcije), a objekti
+su njihove konkretne implementacije.
+• OOP koristi koncepte apstrakcije, enkapsulacije, nasljeđivanja i
+polimorfizma.
+
+----------------------------------------------------------------------------------------------------------------------
+
+svojstva - varijable unutar klase
+metode - funkcije unutar klase
+
+----------------------------------------------------------------------------------------------------------------------
+
+OBJEKT:
+
+- objekti su instance klasa koje mogu imati svojstva i metode.
+- Kreira se korištenjem ključne riječi "new" nakon koje slijedi naziv klase.
+- Svojstvima objekta u PHP-u pristupate korištenjem operatora "->" iza kojeg slijedi naziv svojstva.
+- Konstruktor je metoda koja se poziva kada se kreira objekt. (omogućuje da inicijalizirate svojstva objekta nakon stvaranja objekta.)
+
+----------------------------------------------------------------------------------------------------------------------
+
+ENKAPSULACIJA:
+je način skrivanja detalja implementacije klase od vanjskog svijeta.
+
+----------------------------------------------------------------------------------------------------------------------
+
+public - dostupne su unutar i izvan klase
+protected - dostupne su samo unutar klase i njenih nasljednika
+private - svojstva i metode dostupne unutar klase
+
+----------------------------------------------------------------------------------------------------------------------
+
+SUĆELJE (interface) - (interface ime_sućelja) - omogućuju stvaranje koda koji specificira 
+koje metode klasa mora implementirati, bez potrebe za definiranjem kako se te metode implementiraju.
+Dozvoljeno je pisanje samo ime metode, nema tijela metode, kasnije se kreira u klasi funkcionalnost metode
+
+sučelja:
+
+PHP vam omogućuje da definirate sučelja, koja su skup potpisa metoda koje klasa mora implementirati.
+Kada klasa implementira sučelje, mora osigurati konkretne implementacije za sve metode deklarirane u sučelju.
+
+Sučelje (interface) je popis metoda koje klasa mora implementirati.
+Klasa može implementirati više sučelja.
+
+----------------------------------------------------------------------------------------------------------------------
+
+POLIMORFIZAM je temeljni koncept u objektno orijentiranom programiranju koji omogućuje da se objekti 
+različitih klasa tretiraju kao objekti zajedničke osnovne klase.
+
+----------------------------------------------------------------------------------------------------------------------
+
+APSTRAKTNE KLASE 
+- nemože instancirati objekt, nju nasljeđuju druge klase, služi kao temeljna klasa
+- Apstraktna klasa je nacrt za ostale klase koje ju nasljeđuju.
+
+Nasljeđivanje omogućuje stvaranje novih klasa na temelju
+postojećih, gdje nova klasa nasljeđuje svojstva i metode
+roditeljske klase.
+
+----------------------------------------------------------------------------------------------------------------------
+
+RAZLIKA IZMEĐU APSTRAKTNE KLASE I SUĆELJA?
+- apstraktna klasa sadrži definiciju metode, a sućelje samo definira što treba implementirati
+
+----------------------------------------------------------------------------------------------------------------------
+
+STATIC METODA 
+- metoda koja je definirana unutar klase i dostupna je na razini klase , nije dostupna na razini objekta
+
+----------------------------------------------------------------------------------------------------------------------
+
+ENUMERATOR (ENUM)
+- definirani slućajevi za unos (oneomogućuje unos nećeg što nije zadano), npr. spol M i Ž, nema trećeg
+
+----------------------------------------------------------------------------------------------------------------------
+
+__get - magićna metoda koja dopusti svim svojstvima pristup izvan klase
+
+----------------------------------------------------------------------------------------------------------------------
+
+STATIČKA VARIJABLA: Statička varijabla postoji samo u lokalnom opsegu funkcije, ali ne gubi svoju vrijednost kada 
+izvođenje programa napusti ovaj opseg. 
+
+static - zadržava vrijednost (self::)
+
+----------------------------------------------------------------------------------------------------------------------
+
+RAZLIKA IZMEĐU GET I POST METODE:
+- vidljivost: get vidimo u URL-u, a post ne, post je sakriven u body-u
+- sa get šaljemo podatke putem URL-a (query string parametar), sa post šaljemo podatke putem body-a (tijela zahtjeva)
+
+----------------------------------------------------------------------------------------------------------------------
+
+NAPIŠI KONEKCIJU SA PDO I SA MYSQLI
+
+?????????????????????????????????????????????????
+?????????????????????????????????????????????????
+?????????????????????????????????????????????????
+
+----------------------------------------------------------------------------------------------------------------------
+
+IMENSKI PROSTOR (NAME SPACE):
+- može biti samo jedan po datoteci
+- Imenski prostor služi poboljšanju performansi PHP aplikacija.
+
+----------------------------------------------------------------------------------------------------------------------
+
