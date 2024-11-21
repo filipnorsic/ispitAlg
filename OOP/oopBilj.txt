@@ -112,3 +112,180 @@ IMENSKI PROSTOR (NAME SPACE):
 
 ----------------------------------------------------------------------------------------------------------------------
 
+PHP automatski učitavač (autoloader)
+
+• PHP autoloader je funkcija koja automatski učitava klase i datoteke
+kad se pozovu u kodu.
+• Svrha autoloadera je olakšati razvoj i održavanje aplikacije jer
+programer ne mora ručno uključivati sve klase i datoteke koje su mu
+potrebne.
+• Smanjuje količinu koda koji trebate napisati.
+• Vaš kod čini učinkovitijim.
+• Čini vaš kod lakšim za održavanje.
+
+----------------------------------------------------------------------------------------------------------------------
+
+TRY-CATCH
+
+• Try-catch blok u PHP-u omogućuje rukovanje iznimkama koje
+se javljaju tijekom izvođenja koda.
+• Specijalni objekti u programiranju koji upravljaju neočekivanim greškama.
+• Omogućuju kontrolirano upravljanje greškama umjesto zaustavljanja programa.
+• Try blok sadrži kod koji treba biti izvršen, a catch blok hvata
+iznimke koje su izbačene tijekom izvođenja koda unutar try
+bloka.
+• Omogućuje programeru da se bavi iznimnim situacijama na prikladan
+način, umjesto da program jednostavno prestane raditi ako se dogodi
+neočekivana pogreška.
+• Čišći i čitljiviji kod.
+• Lakše otkrivanje i rješavanje problema.
+• Mogućnost reagiranja na specifične greške na specifične načine.
+
+Vrste iznimki:
+
+• Standardne iznimke:
+• Exception: bazna klasa za sve iznimke.
+• ErrorException: koristi se za obradu PHP grešaka kao iznimki.
+• Specijalizirane iznimke:
+• InvalidArgumentException: baca se kada se funkciji predaju neispravni argumenti.
+• LengthException: baca se kada se funkcija suoči s problemom dužine, npr. prekratki string.
+
+KLJUČNE RIJEČI:
+• try: blok koda koji se testira za greške dok se izvodi
+• throw: baca iznimku kada se dogodi problem
+• catch: omogućuje hvatanje i obradu iznimke
+• finally: blok koda koji se izvodi nakon try/catch blokova, opcionalan
+
+----------------------------------------------------------------------------------------------------------------------
+
+Exception Driven Development (EDD)
+
+• Programerski pristup koji se temelji na pretpostavci da će kod tijekom izvođenja
+neizbježno naići na greške i iznimke.
+• Cilj ovog pristupa je strukturirati i napisati kod na način koji anticipira i elegantno
+upravlja tim greškama, umjesto da se fokusira isključivo na "sretni put" (engl. happy
+path) gdje se sve izvodi kako je planirano.
+• Potiče programere da misle unaprijed o mogućim problemima i načinima njihove
+obrade, što rezultira robusnijim i pouzdanijim aplikacijama.
+
+
+Ključne značajke
+
+1. Anticipacija grešaka: Programeri aktivno predviđaju moguće iznimke i greške koje mogu nastati
+tijekom izvođenja programa.
+2. Proaktivno upravljanje iznimkama: Kod se piše s jasno definiranim blokovima try, catch i finally za
+obradu iznimaka, što omogućava programima da nastave s radom čak i kad dođe do grešaka.
+3. Testiranje robustnosti: Uključuje intenzivno testiranje kako bi se osiguralo da aplikacija može
+elegantno upravljati neočekivanim i izvanrednim situacijama.
+
+Prednosti EDD
+• Poboljšava stabilnost i pouzdanost aplikacija.
+• Olakšava identifikaciju i rješavanje grešaka.
+• Povećava pouzdanost softvera kroz detaljno razmatranje potencijalnih točaka neuspjeha.
+
+----------------------------------------------------------------------------------------------------------------------
+
+DIZAJN OBRASCI
+
+Što su dizajn obrasci?
+Dizajn obrasci su standardizirana rješenja za česte probleme koje susrećemo u dizajnu softvera. Oni su poput
+predložaka koji se mogu prilagoditi za rješavanje određenih dizajnerskih problema u kodiranju.
+
+Vrste dizajn obrazaca:
+• Creational: Olakšavaju stvaranje objekata. Primjeri uključuju Singleton, Factory, Builder, Prototype.
+• Structural: Olakšavaju dizajniranje arhitekture aplikacije. Primjeri uključuju Adapter, Bridge, Decorator, Facade.
+• Behavioral: Usmjereni na komunikaciju između objekata. Primjeri uključuju Observer, Strategy, Command,
+Iterator.
+
+----------------------------------------------------------------------------------------------------------------------
+
+Singleton obrazac
+
+- osigurava da klasa ima samo jednu instancu i pruža globalnu točku pristupa toj instanci.
+• PHP Singleton predložak (engl. Singleton pattern) je obrazac koji
+osigurava da postoji samo jedna instanca određene klase u cijeloj
+aplikaciji.
+• U PHP-u, Singleton obrazac se često koristi za stvaranje objekata koji su
+potrebni za pristup bazi podataka ili za konfiguracijske postavke aplikacije.
+• Singleton obrazac se sastoji od jedne klase koja ima statičku metodu za
+vraćanje jedine instance klase.
+• Ova metoda stvara novu instancu klase samo ako još nije postojala, a
+inače vraća postojeću instancu.
+
+----------------------------------------------------------------------------------------------------------------------
+
+Factory predložak
+
+• Factory pattern u PHP-u je dizajnerski obrazac koji se koristi za
+kreiranje objekata bez eksplicitnog navođenja njihove klase.
+• Kada koristiti factory pattern:
+• Kada imate više implementacija istog sučelja, a ne želite da korisnik
+mora izravno instancirati objekte
+• Kada želite da se klijentski kod bavi samo sučeljem, a ne s pojedinim
+implementacijama
+
+----------------------------------------------------------------------------------------------------------------------
+
+MySQLi
+
+• MySQLi (MySQL Improved Extension) je proširenje PHP-a koje
+omogućuje komunikaciju sa MySQL bazama podataka.
+• Za povezivanje na MySQL bazu podataka koristi se funkcija
+mysqli_connect() koja prima četiri parametra: hostname, username,
+password i database.
+• Nakon uspješne konekcije na bazu podataka, možemo izvršavati upite na
+bazi podataka koristeći funkcije poput mysqli_query(),
+mysqli_fetch_assoc(), mysqli_fetch_array() i druge.
+• mysqli_connect_error() je funkcija koja se koristi za provjeru je li MySQLi
+veza bila uspješna
+
+----------------------------------------------------------------------------------------------------------------------
+
+PDO (PHP Data Objects)
+
+• PDO je PHP ekstenzija koja omogućuje programerima da se povežu
+na različite vrste baza podataka, uključujući MySQL, PostgreSQL, Oracle i druge.
+• PDO nudi konzistentno sučelje za rad sa različitim bazama
+podataka, što znači da se isti kod može koristiti za rad sa različitim
+bazama podataka, bez potrebe za promjenom koda.
+• Jedna od glavnih prednosti korištenja PDO-a je da se može koristiti prepared statement mehanizam za izbjegavanje SQL injection napada.
+• prepare() je metoda koja se koristi za pripremu SQL upita-
+• execute() je metoda koja se koristi za izvršavanje pripremljenog PDO upita.
+• PDO veze se automatski zatvaraju kada skripta završi.
+
+----------------------------------------------------------------------------------------------------------------------
+
+Testiranje
+
+• TDD (Test Driven Development) je pristup razvoju softvera koji se fokusira na pisanje
+testova prije pisanja samog koda.
+• Cilj je osigurati da se softver ispravno ponaša u svim mogućim scenarijima, prije nego što
+se uopće krene s implementacijom.
+• Testiranje softvera postaje sve važnije kako se zahtjevi za softverom povećavaju, a
+kvaliteta i pouzdanost postaju ključni faktori u uspjehu softverskih projekata. Stoga, ako
+želite biti uspješan programer, vrijedi uložiti vrijeme i napor u učenje PHPUnit-a i
+jediničnog testiranja u PHP-u.
+
+napišite testove -> napišite kod -> refaktorirajte
+
+----------------------------------------------------------------------------------------------------------------------
+
+PHPUnit
+
+• PHPUnit je popularni okvir za jedinično testiranje u PHP-u.
+• Koristi se za testiranje pojedinačnih jedinica koda, kao što su
+funkcije ili metode, kako bi se osigurala ispravnost njihove
+implementacije.
+
+assertTrue(): Provjerava da je uvjet istinit (true).
+assertFalse(): Provjerava da je uvjet lažan (false).
+assertEquals (): Provjerava da su očekivana i stvarna vrijednost jednake.
+assertSame (): Provjerava da su očekivana i stvarna vrijednost istog tipa i vrijednosti.
+assertGreaterThan():Provjerava da je stvarna vrijednost veća od očekivane vrijednosti.
+assertLessThan():Provjerava da je stvarna vrijednost manja od očekivane vrijednosti.
+assertArrayHasKey():Provjerava da ključ postoji u polju.
+assertContains():Provjerava da se vrijednost nalazi u nizu.
+assertEmpty():Provjerava da je vrijednost prazna.
+assertNotEmpty():Provjerava da vrijednost nije prazna.
+
+
