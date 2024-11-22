@@ -1,0 +1,267 @@
+
+
+MVC
+
+• MVC (Model-View-Controller) je arhitektonski obrazac koji se koristi za organiziranje i
+strukturiranje PHP web aplikacija.
+• Konceptualno, MVC razdvaja aplikaciju na tri glavna dijela: Model, View i Controller.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Model: Model je sloj koji se bavi poslovnom logikom aplikacije i podacima. Ovdje se obično nalaze klase koje
+predstavljaju entitete i pristupaju bazi podataka
+
+Controller: Controller je sloj koji upravlja komunikacijom između Modela i Viewa. Ovdje se obično nalaze PHP
+skripte koje obrađuju ulazne podatke, a zatim koriste Model kako bi dohvatili, ažurirali ili obrisali podatke.
+Nakon toga, Controller generira odgovarajući View koji korisniku prikazuje informacije
+
+View: View se koristi za prikazivanje informacija korisnicima. Obično se sastoji od HTML-a i CSS-a.
+Ovdje se također nalaze predlošci (templates) koji predstavljaju strukture prikaza.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+"composer.json"
+- je datoteka koja opisuje ovisnosti vašeg projekta. U njoj definirate pakete i njihove verzije koje vaš projekt zahtijeva za rad. 
+Također se mogu navesti i drugi parametri vezani uz instalaciju paketa (npr. putanje do datoteka, skripte koje se izvršavaju nakon 
+instalacije, itd.).
+
+"composer.lock" 
+- je generirana datoteka koja sadrži točne verzije svih paketa koji su trenutno instalirani u vašem projektu. Ova datoteka se 
+koristi kako bi se osiguralo da se iste verzije paketa instaliraju i na drugim računalima ili serverima.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+LARAVEL
+
+• PHP Laravel je popularni open- source web okvir za razvoj aplikacija napisanih u programskom jeziku PHP.
+• Konfiguracijska datoteka je .env
+• Nativno podržava PostgreSQL,SQLite i MySQL baze
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Prednosti Laravela uključuju:
+
+• Snažan sustav za rutiranje - Laravel omogućuje jednostavno upravljanje rutama, što
+olakšava izgradnju aplikacija s različitim rutama.
+• Ugrađena autentikacija - Laravel dolazi s ugrađenim sustavom autentikacije koji
+programerima omogućuje jednostavno upravljanje pristupom korisnika i upravljanjem
+sesijama.
+• Eloquent ORM - Laravel dolazi s Eloquent ORM-om, koji omogućuje programerima rad s
+bazama podataka koristeći PHP sintaksu, što olakšava upravljanje i manipuliranje
+podacima u bazi podataka.
+• Blade templating engine - Laravel dolazi s moćnim Blade templating engine-om koji
+omogućuje programerima jednostavno kreiranje sjajnih i dinamičkih predložaka za svoje
+aplikacije.
+• Velika zajednica - Laravel ima veliku zajednicu programera koji doprinose razvoju okvira
+i nude podršku drugim programerima.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Kako započeti novi Laravel projekt
+
+Instalirajte PHP i Composer: Laravel zahtijeva PHP verziju 7.4 ili noviju, pa ako ga
+nemate instaliranog, to prvo trebate učiniti. Također, potrebno je instalirati Composer, koji
+je alat za upravljanje ovisnostima u PHP projektima.
+
+Instalirajte Laravel putem Composer-a: Nakon što imate PHP i Composer instalirane,
+sljedeći korak je instaliranje Laravela putem Composer-a. Možete to učiniti pokretanjem
+naredbe "composer create-project --prefer-dist laravel/laravel ime-projekta" u terminalu,
+gdje "ime-projekta" predstavlja naziv vašeg novog projekta.
+
+Konfigurirajte bazu podataka: Laravel dolazi s predloškom datoteke .env koja sadrži
+postavke baze podataka. Otvorite ovu datoteku i konfigurirajte svoju bazu podataka prema
+svojim potrebama.
+
+Pokrenite migracije: Laravel koristi migracije za upravljanje shemom
+baze podataka. Ako planirate koristiti bazu podataka u vašem projektu,
+potrebno je pokrenuti migracije. To možete učiniti pokretanjem naredbe
+"php artisan migrate" u terminalu.
+
+Kreirajte modele, kontrolere i rute: Nakon što ste instalirali Laravel i
+konfigurirali bazu podataka, sljedeći korak je kreiranje modela,
+kontrolera i ruta. Modeli predstavljaju tablice u bazi podataka, kontroleri
+obrađuju zahtjeve korisnika, a rute omogućuju usmjeravanje zahtjeva
+na odgovarajuće kontrolore.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Najčešće korištene naredbe
+
+php artisan serve: 
+Ova naredba pokreće ugrađeni web server i omogućuje vam da
+pregledate vašu Laravel aplikaciju u pregledniku. Server će se pokrenuti na adresi
+http://localhost:8000/ prema zadanim postavkama.
+
+php artisan make:model NazivModela: 
+Ova naredba stvara novi model unutar app/Models direktorija vašeg projekta. Možete dodati opciju --migration kako biste stvorili i
+migraciju za model. 
+
+php artisan make:controller NazivKontrolera: 
+Ova naredba stvara novi kontroler unutar app/Http/Controllers direktorija vašeg projekta.
+
+php artisan make:migration naziv_migracije: 
+Ova naredba stvara novu migraciju u direktoriju database/migrations vašeg projekta. Migracije se koriste za promjene sheme
+baze podataka.
+
+php artisan migrate: 
+Ova naredba pokreće sve migracije koje još nisu pokrenute na vašoj bazi podataka.
+
+php artisan tinker: 
+Ova naredba pokreće Tinker, interaktivno sučelje za rad s vašom aplikacijom. To vam omogućuje da testirate razne naredbe i 
+funkcionalnosti vašeg koda.
+
+php artisan route:list: 
+Ova naredba prikazuje popis svih ruta koje ste definirali u vašoj aplikaciji.
+
+php artisan make:middleware NazivMiddlewarea: 
+Ova naredba stvara novi middleware u app/Http/Middleware direktoriju vašeg projekta. Middleware se koristi za dodavanje
+funkcionalnosti na zahtjev i odgovor na putu do odredišta.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Middleware
+
+• Middleware u Laravelu je izvršni sloj koji se nalazi između zahtjeva i
+odgovora.
+• Kada klijent šalje zahtjev, on prvo prolazi kroz middleware koji ga obrađuje, a
+nakon toga se generira odgovor.
+
+• Middleware se koristi za filtriranje, autorizaciju, manipulaciju zahtjeva
+i/ili odgovora te za dodavanje raznih funkcionalnosti i slojeva
+sigurnosti.
+• Middleware se može dodijeliti pojedinačnim rutama ili grupama ruta,
+a može se također primijeniti globalno na sve rute u aplikaciji.
+• Kada se middleware dodijeli ruti, on se izvršava samo kada se ta ruta pozove.
+
+
+Često korišteni middleware
+
+Authenticate - koristi se za provjeru autentičnosti korisnika i sprečavanje pristupa
+neautoriziranim korisnicima. Metoda je Auth::login()
+ThrottleRequests - koristi se za ograničavanje broja zahtjeva po vremenskom periodu,
+kako bi se spriječio DDoS napad ili preopterećenje servera
+VerifyCsrfToken - koristi se za provjeru CSRF tokena kako bi se zaštitilo korisničko sučelje
+od CSRF napada
+EncryptCookies - koristi se za enkripciju kolačića kako bi se zaštitili korisnički podaci
+
+Cors - koristi se za omogućavanje Cross-Origin Resource Sharing-a (CORS) i sprečavanje
+blokiranja CORS-a u pregledniku
+Cache - koristi se za spremanje izračunatih vrijednosti u predmemoriju kako bi se smanjilo
+vrijeme odziva aplikacije
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Rute
+
+• Rute u Laravelu su mehanizam za mapiranje URL adresa na odgovarajuće
+kontrolere i metode.
+• redirect() je metoda za preusmjeravanje korisnika na drugi URL u Laravel
+kontroleru.
+• {param}: metoda koristi za definiranje parametra rute
+• Metode za grupiranje ruta: Route::prefix(), Route::middleware(),
+Route::group()
+• U Laravelu, rute se definiraju u datoteci routes/web.php za rute web aplikacije i u
+datoteci routes/api.php za API rute.
+• Laravel također podržava grupiranje ruta po određenom prefiksu, što je korisno
+kada želite imati isti prefiks za sve rute unutar određene skupine.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Migracije
+
+• Migracija je PHP datoteka koja sadrži upute za
+promjene u bazi podataka, kao što su stvaranje
+novih tablica, dodavanje novih stupaca, indeksa
+ili izmjene postojećih tablica.
+• Primjer Laravel migracije za stvaranje users
+tablice sa id, name, email i password stupcima:
+• Ova migracija se može izvršiti pokretanjem php
+artisan migrate naredbe. Ako je potrebno,
+migracije se također mogu poništiti pomoću
+naredbe php artisan migrate:rollback.
+Migracije se također mogu stvoriti pomoću
+naredbe php artisan make:migration.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Seederi
+
+• Laravel Seeder je mehanizam koji vam omogućuje da popunite bazu podataka s početnim podacima.
+• Za pokretanje određenog seeder-a koristimo php artisan db:seed --class=SeederName
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Laravel Model
+
+• U Laravelu, Model je konvencija dizajna softvera koja predstavlja tablicu u bazi podataka.
+Modeli se koriste za izvršavanje operacija na bazi podataka, kao što su čitanje, stvaranje,
+ažuriranje i brisanje podataka.
+• U ovom primjeru, uz svojstvo $fillable samo polja name, email i password mogu se
+popuniti masovno. Sva ostala polja, kao što su ID i vrijeme stvaranja, bit će ignorirana.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Relacije modela
+
+• U Laravelu, relacije se koriste za povezivanje različitih modela i omogućavanje izvođenja
+složenih upita koji uključuju podatke iz više modela.
+
+• Belongs To: Belongs To relacija koristi se kada jedan model pripada drugom modelu.
+• Has One: Has One relacija koristi se kada jedan model ima samo jedan povezani model.
+• Has Many: Has Many relacija koristi se kada jedan model ima više povezanih modela.
+• Many To Many: Many To Many relacija koristi se kada jedan model može imati više
+povezanih modela i obrnuto.
+• Has Many Through: Has Many Through relacija koristi se kada imamo tri modela i želimo
+dohvatiti podatke iz trećeg modela preko prvog i drugog modela.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Eloquent
+
+• Eloquent je ORM (Object-
+Relational Mapping) ugrađen u radni okvir Laravel koji omogućava programerima da rade s bazama podataka koristeći
+objekte i metode umjesto SQL upita.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Klasa DB
+
+• Klasa DB u Laravelu predstavlja centralni pristupni točku za interakciju s bazom podataka.
+• Ova klasa omogućuje izvršavanje SQL upita nad bazom podataka bez potrebe za korištenjem modela ili Eloquent ORM-a
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Laravel testiranje
+
+• Laravel testiranje se odnosi na proces testiranja Laravel aplikacija kako bi se
+osigurala njihova funkcionalnost, izdržljivost i skalabilnost.
+• Laravel testiranje omogućuje programerima da automatiziraju testiranje aplikacija
+i osiguraju da aplikacija radi ispravno prije nego što se uvede u produkcijsko
+okruženje.
+• Laravel testiranje uključuje testiranje različitih dijelova aplikacije, uključujući rute,
+kontrolere, modele, migracije, seedere i druge dijelove aplikacije. Testovi se
+mogu pisati pomoću različitih tehnika testiranja, kao što su jedinično testiranje,
+funkcionalno testiranje i integracijsko testiranje.
+• Laravel testiranje se može izvršiti pomoću naredbe "php artisan test" koja će
+pokrenuti sve testove u direktoriju "tests". Također je moguće pokrenuti
+pojedinačne testove pomoću naredbe "php artisan test --filter <test-name>".
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+Laravel Dusk
+
+• Laravel Dusk je paket za testiranje koji se koristi za automatizirano testiranje web aplikacija.
+• Dusk koristi Selenium WebDriver za emuliranje interakcije korisnika sa web stranicom i provjeru radi li
+aplikacija ispravno.
+
+Primjer Dusk naredbi
+
+• visit($url): otvara stranicu na zadanom URL-u
+• assertSee($text): provjerava da li se zadani tekst prikazuje na stranici
+• type($selector, $text): upisuje zadani tekst u formu ili polje označeno određenim selektorom
+• press($button): simulira klik na gumb sa zadanim tekstom ili selektorom
+• seePageIs($url): provjerava da li se trenutno prikazuje stranica sa zadanim URL-om
+• assertTitle($title): provjerava da li je naslov trenutne stranice jednak zadanoj vrijednosti
+• clickLink($linkText): simulira klik na link sa zadanim tekstom
+• screenshot($fileName): sprema screenshot trenutne stranice u zadani file

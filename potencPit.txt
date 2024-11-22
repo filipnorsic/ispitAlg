@@ -153,7 +153,7 @@ brojem verzije kao argumentima.
 vašem računalu.
 2. Pomaknite se do direktorija u kojem želite instalirati
 paket "vendor/package".
-3. Izvršite sljedeću naredbu:
+3.) Izvršite sljedeću naredbu:
 composer require vendor/package:1.0.0
 
 -------------------------------------------------------------------------------------------------------------------------------------
