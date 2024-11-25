@@ -216,3 +216,16 @@ sadrži samo jednu vrijednost.
 
 ----------------------------------------------------------------------------------------------------------------------
 
+require i require_once
+
+require
+Uvijek učitava fajl svaki put kada se funkcija pozove, bez obzira na to je li fajl već prethodno bio učitan.
+Ako fajl ne postoji ili se ne može uključiti, skripta odmah zaustavlja izvršavanje i baca fatalnu grešku.
+
+require_once
+Učitava fajl samo jednom. Ako je fajl već prethodno uključen, preskočiće njegovo ponovno učitavanje.
+Takođe baca fatalnu grešku ako fajl ne postoji.
+
+Oba su slična funkcijama include i include_once, ali ključna razlika je što require i require_once izazivaju 
+fatalnu grešku ako fajl nije pronađen, dok include i include_once izazivaju samo upozorenje (Warning).
+
