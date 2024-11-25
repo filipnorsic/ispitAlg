@@ -197,3 +197,22 @@ KAKO MIGRIRATI BAZU NA SERVER?
 - dobijem sql file 
 - konektamo se na bazu na udaljenom serveru i preko SSH importamo dobiveni sql file
 
+----------------------------------------------------------------------------------------------------------------------
+
+KAKO BISTE NORMALIZIRALI POSTOJEĆU MYSQL BAZU PODATAKA KOJA SADRŽI REDUNDANTNE
+I NE EFIKASNO STRUKTURIRANE PODATKE?
+UKLJUČITE DETALJNE KORAKE ZA SVAKI DIO PROCESA.
+
+1. Identifikacija problema:
+Pregledajte postojeću bazu podataka kako biste identificirali probleme poput
+redundantnih podataka, nepravilono pohranjenih podataka (npr. više vrijednosti
+u jednom stupcu), ili bilo kakvih znakova koji ušućuju na lošu strukturu baze.
+
+2. Primjena prve normalne forme 1NF
+Osigurajte da tabablica sadrži samo atomske vrijednosti, tj. da svaka čelija
+sadrži samo jednu vrijednost.
+
+.........
+
+----------------------------------------------------------------------------------------------------------------------
+

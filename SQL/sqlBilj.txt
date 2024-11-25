@@ -79,19 +79,21 @@ koje se ponavljaju.
 • Tablica je u 1NF ako nema ponavljajućih grupa ili nizova.
 
 
-Normalizacija - 1NF
+Normalizacija - 2NF
 
-⚫ Prva normalna forma zahtjeva atomičnost
-polja tablice i da svi zapisi moraju imati isti
-broj polja. To znači da se u istom polju ne
-mogu zapisivati ime i prezime.
-⚫ Razlog postojanja ovog pravila je to što je
-nemoguće pretraživati ili sortirati podatke
-prema imenu ili prezimenu ukoliko se obje
-vrijednosti nalaze u istom polju.
-⚫ Slijedeći zahtjev koji tablica mora zadovoljiti
-da bi bila u 1NF je ne sadržavati vrijednosti
-koje se ponavljaju.
+⚫ Druga normalna forma zahtjeva da je
+zadovoljena 1NF i sva polja moraju biti
+jednoznačna i u potpunosti ovisiti o glavnom
+ključu (engl. primary key).
+⚫ Drugim rječima u svakoj tablici moraju se
+zapisivati podatci o samo jednom subjektu.
+Primjer nepoštivanja 2NF je tablica u kojoj se
+zapisuju podatci o projektu zajedno s
+podatcima o učeniku koji radi na projektu.
+⚫ Kako bi tablicu prebacili u 2NF potrebno je
+takvu tablicu razdvojiti u dvije tablice.
+Postupak razdvajanja podataka u dvije tablice
+zove se dekompozicija.
 • Druga normalna forma (2NF): Svaka tablica mora imati primarni
 ključ, a svi ostali atributi u tablici moraju biti ovisni o primarnom
 ključu.
