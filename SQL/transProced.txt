@@ -1,0 +1,72 @@
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    stock_quantity INT NOT NULL CHECK (stock_quantity >= 0)
+);
+
+
+
+//Pohranjena procedura za ažuriranje zaliha
+
+DELIMITER //
+
+CREATE PROCEDURE update_stock(
+    IN product_id INT,
+    IN sold_quantity INT
+)
+BEGIN
+    DECLARE current_stock INT;
+
+    -- Pokreni transakciju
+    START TRANSACTION;
+
+    -- Dohvati trenutnu količinu na zalihi
+    SELECT stock_quantity INTO current_stock
+    FROM products
+    WHERE id = product_id;
+
+    -- Provjeri je li prodaja moguća
+    IF current_stock IS NULL THEN
+        -- Ako proizvod ne postoji, prekini transakciju
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Proizvod ne postoji';
+    ELSEIF current_stock < sold_quantity THEN
+        -- Ako nema dovoljno zaliha, prekini transakciju
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Nedovoljno zaliha';
+    ELSE
+        -- Ažuriraj stanje zaliha
+        UPDATE products
+        SET stock_quantity = stock_quantity - sold_quantity
+        WHERE id = product_id;
+    END IF;
+
+    -- Potvrdi transakciju
+    COMMIT;
+END;
+//
+
+DELIMITER ;
+
+
+
+// SQL funkcija za dohvaćanje trenutne količine
+
+DELIMITER //
+
+CREATE FUNCTION get_stock_quantity(product_id INT)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+    DECLARE stock INT;
+
+    SELECT stock_quantity INTO stock
+    FROM products
+    WHERE id = product_id;
+
+    RETURN stock;
+END;
+//
+
+DELIMITER ;

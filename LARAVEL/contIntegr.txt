@@ -1,0 +1,12 @@
+• Proces kontinuirane integracije uključuje sljedeće korake:
+1. Redovito ažuriranje zajedničkog repozitorija: Razvojni timovi redovito ažuriraju zajednički repozitorij
+kako bi uključili nove promjene u kodu.
+2. Automatsko generiranje izvršivih datoteka: Nakon što su promjene u kodu uključene u zajednički
+repozitorij, sustav za kontinuiranu integraciju automatski generira izvršive datoteke, kao što su izvršne
+datoteke ili paketi za distribuciju.
+3. Automatsko pokretanje testova: Nakon generiranja izvršivih datoteka, sustav za kontinuiranu
+integraciju automatski pokreće testove kako bi se osiguralo da je novi kod integriran bez poteškoća i ne
+ometa postojeći kod.
+4. Automatsko slanje obavijesti o rezultatima: Nakon pokretanja testova, sustav za kontinuiranu
+integraciju šalje obavijesti razvojnom timu o rezultatima testova, uključujući i obavijesti o greškama koje
+su pronađene.
